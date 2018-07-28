@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+
+    <link href="css/index.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <title>NetDB 聊聊吧！</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">NetDB 聊聊吧！</a>
+                </div>
+                <button id="post-navbtn" type="button" class="btn btn-primary navbar-btn pull-right" data-toggle="modal" data-target="#post-dialog">Post</button>
+            </div>
+        </nav>
+
+        <!-- Message List -->
+        <div>
+            <div id="loader" class="text-center">
+                <img src="img/loader.gif" />
+            </div>
+            <div id="msg-list" class="list-group">
+            </div>
+        </div>
+
+        <div class="footer">
+            <p class="text-right"><small>NetDB &copy; 2014</small>
+            </p>
+        </div>
+
+    </div>
+
+    <!-- Post dialog -->
+    <div class="modal fade" id="post-dialog" tabindex="-1" role="dialog" aria-labelledby="postModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="postModalLabel">Post a New Message</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <textarea class="form-control" id="message-text" placeholder="Enter message"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button id="post-btn" type="button" class="btn btn-primary">Post</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

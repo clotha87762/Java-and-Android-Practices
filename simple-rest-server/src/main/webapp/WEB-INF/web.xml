@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	
+	<!-- Welcome Pages -->
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+	
+	<!-- Listeners -->
+	<listener>
+		<listener-class>netdb.courses.softwarestudio.simple_rest_server.service.objectify.ObjectifyInitializer</listener-class>
+	</listener>
+	
+	<!-- Controllers -->
+	<servlet>
+		<servlet-name>users-controller</servlet-name>
+		<servlet-class>netdb.courses.softwarestudio.simple_rest_server.mvc.control.UsersController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>users-controller</servlet-name>
+		<url-pattern>/users/*</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>messages-controller</servlet-name>
+		<servlet-class>netdb.courses.softwarestudio.simple_rest_server.mvc.control.MessagesController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>messages-controller</servlet-name>
+		<url-pattern>/messages/*</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>session-controller</servlet-name>
+		<servlet-class>netdb.courses.softwarestudio.simple_rest_server.mvc.control.SessionController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>session-controller</servlet-name>
+		<url-pattern>/session/*</url-pattern>
+	</servlet-mapping>
+	
+	
+	<!-- DAOs -->
+	<servlet>
+		<servlet-name>users-dao</servlet-name>
+		<servlet-class>netdb.courses.softwarestudio.simple_rest_server.mvc.model.business.persistence.UsersDao</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>users-dao</servlet-name>
+		<url-pattern>/model/business/persistene/users-dao</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>messages-dao</servlet-name>
+		<servlet-class>netdb.courses.softwarestudio.simple_rest_server.mvc.model.business.persistence.MessagesDao</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>messages-dao</servlet-name>
+		<url-pattern>/model/business/persistene/messages-dao</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>session-dao</servlet-name>
+		<servlet-class>netdb.courses.softwarestudio.simple_rest_server.mvc.model.business.persistence.SessionDao</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>session-dao</servlet-name>
+		<url-pattern>/model/business/persistene/session-dao</url-pattern>
+	</servlet-mapping>
+	
+	
+	<!-- Views -->
+	<servlet>
+		<servlet-name>users-json-view</servlet-name>
+		<servlet-class>netdb.courses.softwarestudio.simple_rest_server.mvc.view.json.UsersJsonView</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>users-json-view</servlet-name>
+		<url-pattern>/view/json/users</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>messages-json-view</servlet-name>
+		<servlet-class>netdb.courses.softwarestudio.simple_rest_server.mvc.view.json.MessagesJsonView</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>messages-json-view</servlet-name>
+		<url-pattern>/view/json/messages</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>session-json-view</servlet-name>
+		<servlet-class>netdb.courses.softwarestudio.simple_rest_server.mvc.view.json.SessionJsonView</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>session-json-view</servlet-name>
+		<url-pattern>/view/json/session</url-pattern>
+	</servlet-mapping>
+	
+	
+	<!-- Error Views -->
+	<servlet>
+		<servlet-name>400-bad-request-view</servlet-name>
+		<servlet-class>netdb.courses.softwarestudio.simple_rest_server.mvc.view.Http400BadRequestView</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>400-bad-request-view</servlet-name>
+		<url-pattern>/view/400-bad-request-view</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>401-unauthorized</servlet-name>
+		<servlet-class>netdb.courses.softwarestudio.simple_rest_server.mvc.view.Http401Unauthorized</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>401-unauthorized</servlet-name>
+		<url-pattern>/view/401-unauthorized-view</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>409-conflict</servlet-name>
+		<servlet-class>netdb.courses.softwarestudio.simple_rest_server.mvc.view.Http409ConflictView</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>409-conflict</servlet-name>
+		<url-pattern>/view/409-conflict-view</url-pattern>
+	</servlet-mapping>
+	
+	
+	<!-- Security Setting -->
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>Internal URLs</web-resource-name>
+			<url-pattern>/model/*</url-pattern>
+			<url-pattern>/view/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>admin</role-name>
+		</auth-constraint>
+	</security-constraint>
+</web-app>

@@ -1,0 +1,13 @@
+body {
+    background-image: url(../img/bg.png);
+}
+
+.container {
+    background-color: white;
+}
+
+#msg-list {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    word-wrap: break-word;
+}
